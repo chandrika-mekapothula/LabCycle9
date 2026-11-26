@@ -31,7 +31,7 @@ const Home = () => {
                         <button onClick={() => navigate(`/user/${user.id}`)}>{user.name}</button>
                     ))
                 } */}
-            <div style={{display:'flex',flexDirection:'column'}}>
+            <div className='post-container'>
                 {
                     loading ? ("Loading Data") :
                         error ? (
@@ -39,7 +39,11 @@ const Home = () => {
                         ) :
                             (
                                 postData.map((post, id) => (
-                                    <button onClick={() => navigate(`/post/${post.id}`)}>{post.title}</button>
+                                    <button onClick={() => navigate(`/post/${post.id}`)} className='button-container'>
+                                        Post #{post.id} :  &nbsp;
+                                      {post.title}
+                                        <span >View Details →</span>
+                                    </button>
                                 ))
                             )
                 }
